@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  variant-alert:
+    build: .
+    container_name: variant-alert
+    restart: unless-stopped
+    volumes:
+      - ./data:/root/data
+      - ./logs:/root/logs
