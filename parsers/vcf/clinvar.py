@@ -13,7 +13,7 @@ from const.clinvar import (
     CLINVAR_REVIEW_STATUS_RANK,
     CLINVAR_PATHO_STATUS_RANK,
 )
-from logger import logger
+from logger.logger import get_logger
 from parsers.vcf import VCFParser, MalformedVCFError
 
 
@@ -24,7 +24,7 @@ class ClinVarComparisonError(Exception):
 class ClinvarVCFParser(VCFParser):
     def __init__(self, vcf_file_path):
         super().__init__(vcf_file_path)
-        self.logger = logger.get_logger(__name__)
+        self.logger = get_logger(__name__)
 
         self.vcf_type_name = "Clinvar VCF"
         self._get_fields_dict_methods = {
@@ -250,7 +250,7 @@ class ClinvarVCFComparator(object):
         self._source_vcf = ClinvarVCFParser(source_vcf)
         self._target_vcf = ClinvarVCFParser(target_vcf)
 
-        self.logger = logger.get_logger(__name__)
+        self.logger = get_logger(__name__)
 
     def compare_references(self):
         """
