@@ -33,4 +33,4 @@ RUN poetry install --no-root --only main
 COPY . /app
 
 # Comando por defecto
-CMD ["poetry", "run", "python", "main.py"]
+CMD ["poetry", "run", "variant-alert", "--help"]
