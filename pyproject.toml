@@ -11,7 +11,7 @@ authors = [
 
 [tool.poetry.dependencies]
 python = "^3.6"
-pysam = "=0.15.3"
+pysam = ">=0.15.3"
 click = "^7.0"
 
 [tool.poetry.group.dev.dependencies]
