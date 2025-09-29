@@ -42,9 +42,21 @@ ClinVCF extract all variants from the monthly XML release of ClinVar into a VCF 
 
 ## Run
 
+After installation, you can run the tool using either of these methods:
+
+### Method 1: Using poetry run (recommended)
 ```bash
-poetry shell
+poetry run variant-alert [OPTIONS] VCF_SOURCE_PATH VCF_TARGET_PATH COMMAND1 [ARGS]...
 ```
+
+### Method 2: Activating the virtual environment
+```bash
+# Get the virtual environment path and activate it
+source $(poetry env info --path)/bin/activate
+variant-alert [OPTIONS] VCF_SOURCE_PATH VCF_TARGET_PATH COMMAND1 [ARGS]...
+```
+
+## Usage
 
 ```bash
 Usage: variant-alert [OPTIONS] VCF_SOURCE_PATH VCF_TARGET_PATH COMMAND1
