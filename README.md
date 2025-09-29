@@ -30,9 +30,17 @@ poetry
 
 ### Install
 
+#### Method 1: Using Poetry (recommended)
 ```bash
 poetry install
 ```
+
+#### Method 2: Using pip (when poetry is not available)
+```bash
+pip install -e .
+```
+
+This will install the package in development mode and create the `variant-alert` command-line tool.
 
 ### Input recommended
 
@@ -42,17 +50,22 @@ ClinVCF extract all variants from the monthly XML release of ClinVar into a VCF 
 
 ## Run
 
-After installation, you can run the tool using either of these methods:
+After installation, you can run the tool using any of these methods:
 
-### Method 1: Using poetry run (recommended)
+### Method 1: Using poetry run (recommended when using poetry)
 ```bash
 poetry run variant-alert [OPTIONS] VCF_SOURCE_PATH VCF_TARGET_PATH COMMAND1 [ARGS]...
 ```
 
-### Method 2: Activating the virtual environment
+### Method 2: Activating the virtual environment (when using poetry)
 ```bash
 # Get the virtual environment path and activate it
 source $(poetry env info --path)/bin/activate
+variant-alert [OPTIONS] VCF_SOURCE_PATH VCF_TARGET_PATH COMMAND1 [ARGS]...
+```
+
+### Method 3: Direct command (when installed with pip)
+```bash
 variant-alert [OPTIONS] VCF_SOURCE_PATH VCF_TARGET_PATH COMMAND1 [ARGS]...
 ```
 
