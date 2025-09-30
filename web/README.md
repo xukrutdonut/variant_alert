@@ -2,6 +2,8 @@
 
 A user-friendly web interface for Variant Alert!, providing an easy way to compare ClinVar VCF files without using the command line.
 
+![Web Interface Home](../img/variant-alert-web-homepage.png)
+
 ## Features
 
 - 🌐 **Web-based Interface**: Upload and compare VCF files through your browser

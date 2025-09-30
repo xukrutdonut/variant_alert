@@ -200,7 +200,9 @@ def health():
 
 def main():
     """Main entry point for the web application"""
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    import os
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port, debug=False)
 
 
 if __name__ == '__main__':

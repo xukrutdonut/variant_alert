@@ -76,7 +76,11 @@ For a user-friendly browser-based interface:
 poetry run variant-alert-web
 ```
 
-Then open your browser and navigate to `http://localhost:5000`
+Then open your browser and navigate to `http://localhost:8080`
+
+**Web Interface Screenshots:**
+
+![Web Interface Home](img/variant-alert-web-homepage.png)
 
 See [web/README.md](web/README.md) for detailed web interface documentation.
 
