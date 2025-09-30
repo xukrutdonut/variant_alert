@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  variant-alert-web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    container_name: variant-alert-web
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./web/uploads:/app/web/uploads
+      - ./web/outputs:/app/web/outputs
+    environment:
+      - FLASK_APP=web.app
+      - FLASK_ENV=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s

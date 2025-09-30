@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h2>Compare ClinVar VCF Files</h2>
+    <p class="subtitle">Monitor significant alterations in variant classification and gene-disease associations between ClinVar database versions</p>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Upload VCF Files</h3>
+    </div>
+    <div class="card-body">
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="source_vcf">Source VCF (Reference) *</label>
+                <input type="file" id="source_vcf" name="source_vcf" accept=".vcf,.vcf.gz" required>
+                <small>Upload the reference ClinVar VCF file</small>
+            </div>
+
+            <div class="form-group">
+                <label for="target_vcf">Target VCF (To Compare) *</label>
+                <input type="file" id="target_vcf" name="target_vcf" accept=".vcf,.vcf.gz" required>
+                <small>Upload the newer ClinVar VCF file to compare</small>
+            </div>
+
+            <div class="form-group">
+                <label for="comparison_type">Comparison Type *</label>
+                <select id="comparison_type" name="comparison_type" required>
+                    <option value="compare-variant">Compare Variants - Variants with change of pathogenicity</option>
+                    <option value="compare-gene">Compare Genes - Genes with change of pathogenicity/review status</option>
+                    <option value="clinvarome">Clinvarome - All pathogenic genes in target VCF</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="output-format-group">
+                <label for="output_format">Output Format</label>
+                <select id="output_format" name="output_format">
+                    <option value="tsv">TSV (Tab-Separated Values)</option>
+                    <option value="vcf">VCF (Variant Call Format)</option>
+                </select>
+                <small id="vcf-warning" style="display: none; color: #856404;">⚠️ VCF output may take up to 10 minutes to generate</small>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="submit-btn">
+                    <span id="btn-text">Start Comparison</span>
+                    <span id="btn-spinner" class="spinner" style="display: none;"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="results-section" class="card" style="display: none;">
+    <div class="card-header">
+        <h3>Results</h3>
+    </div>
+    <div class="card-body">
+        <div id="results-content"></div>
+    </div>
+</div>
+
+<div class="info-section">
+    <h3>About Variant Alert</h3>
+    <div class="info-grid">
+        <div class="info-card">
+            <h4>🔬 Compare Variants</h4>
+            <p>Identify variants with significant changes in pathogenicity classification between two ClinVar versions</p>
+        </div>
+        <div class="info-card">
+            <h4>🧬 Compare Genes</h4>
+            <p>Track genes with changes in pathogenicity and/or review confidence status</p>
+        </div>
+        <div class="info-card">
+            <h4>📊 Clinvarome</h4>
+            <p>Generate a comprehensive list of genes with at least one pathogenic variant in the target ClinVar VCF</p>
+        </div>
+    </div>
+</div>
+
+<div class="info-section">
+    <h3>Recommended Input</h3>
+    <p>We recommend using VCF files processed from <a href="https://github.com/SeqOne/clinvcf" target="_blank">ClinVCF</a>, as VCF files from the ClinVar repository may be incomplete.</p>
+    <p>ClinVCF extracts all variants from the monthly XML release of ClinVar into a complete VCF format.</p>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+{% endblock %}
