@@ -69,6 +69,17 @@ variant-alert [OPTIONS] VCF_SOURCE_PATH VCF_TARGET_PATH COMMAND1 [ARGS]...
 variant-alert [OPTIONS] VCF_SOURCE_PATH VCF_TARGET_PATH COMMAND1 [ARGS]...
 ```
 
+### Method 4: Web Interface (NEW!)
+For a user-friendly browser-based interface:
+
+```bash
+poetry run variant-alert-web
+```
+
+Then open your browser and navigate to `http://localhost:5000`
+
+See [web/README.md](web/README.md) for detailed web interface documentation.
+
 ## Usage
 
 ```bash

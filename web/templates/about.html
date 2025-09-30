@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}About - Variant Alert!{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h2>About Variant Alert!</h2>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>Overview</h3>
+        <p>Collaborative variant interpretation databases such as ClinVar are updated weekly, resulting in changes that can impact diagnostic performance in every genetic centre worldwide. These frequent updates present at least two challenges:</p>
+        <ul>
+            <li><strong>(i)</strong> Promptly integrating the most up-to-date versions to ensure the patient receives the most relevant diagnostic</li>
+            <li><strong>(ii)</strong> Finding an effective way to re-interpret previous analyses when changes in databases alter interpretation results</li>
+        </ul>
+        <p>To address these challenges, we provide <strong>Variant Alert!</strong>, a tool to monitor every significant alteration in variant classification and gene-disease association between two versions of ClinVar database.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>Features</h3>
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>Compare Variants</h4>
+                <p>A tabulated or VCF file of variants with significant changes in classification status</p>
+            </div>
+            <div class="info-card">
+                <h4>Compare Genes</h4>
+                <p>A tabulated file of significant changes in gene-disease association</p>
+            </div>
+            <div class="info-card">
+                <h4>Clinvarome</h4>
+                <p>A list of genes with at least one pathogenic variant in ClinVar</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>Part of Genome Alert! Framework</h3>
+        <p><strong>Variant Alert!</strong> is a part of the <a href="https://github.com/SeqOne/GenomeAlert_app" target="_blank">Genome Alert! framework</a>.</p>
+        <p>A collaboration of:</p>
+        <div class="partners">
+            <p>🧬 SeqOne</p>
+            <p>🎓 Université Grenoble Alpes</p>
+            <p>🏥 CHU de Rouen</p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>How to Cite</h3>
+        <p>If you use a tool of the Genome Alert! framework, please cite:</p>
+        <blockquote>
+            Yauy et al., Genome Alert!: a standardized procedure for genomic variant reinterpretation and automated genotype-phenotype reassessment in clinical routine. medRxiv (2021). 
+            <a href="https://doi.org/10.1101/2021.07.13.21260422" target="_blank">https://doi.org/10.1101/2021.07.13.21260422</a>
+        </blockquote>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3>License</h3>
+        <p><strong>Variant Alert!</strong> is licensed under the Apache License, Version 2.0.</p>
+        <p>The source code is available on <a href="https://github.com/xukrutdonut/variant_alert" target="_blank">GitHub</a>.</p>
+    </div>
+</div>
+
+{% endblock %}

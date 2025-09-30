@@ -17,10 +17,19 @@ setup(
     install_requires=[
         "pysam>=0.15.3",
         "click>=7.0,<8.0",
+        "flask>=2.0,<3.0",
+        "werkzeug>=2.0,<3.0",
     ],
+    extras_require={
+        'web': [
+            'flask>=2.0,<3.0',
+            'werkzeug>=2.0,<3.0',
+        ],
+    },
     entry_points={
         'console_scripts': [
             'variant-alert=variant_alert.cli:variant_alert',
+            'variant-alert-web=web.app:main',
         ],
     },
     classifiers=[
